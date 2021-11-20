@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="styles/styles.css" />
     <link rel="stylesheet" href="styles/overlays.css" />
     <link rel="stylesheet" href="styles/configuration.css" />
+    <link rel="stylesheet" href="styles/game.css" />
     <title>Tic tac toe demo</title>
   </head>
   <body>
@@ -59,15 +60,15 @@
       </section>
 
       <section id="active-game">
-        <article>
-          <h3>You win, <span id="winner-name">Player Name</span>!</h3>
+        <article id="game-over">
+          <h2>You win, <span id="winner-name">Player Name</span>!</h2>
           <p>Click "Start New Game" to play again.</p>
         </article>
 
         <p>It's your turn <span id="active-player-name">Player Name</span>!</p>
-        <ol>
-          <li></li>
-          <li></li>
+        <ol id="game-board">
+          <li class="disabled">X</li>
+          <li class="disabled">O</li>
           <li></li>
 
           <li></li>
