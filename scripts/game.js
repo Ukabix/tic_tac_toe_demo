@@ -1,6 +1,7 @@
 function resetGameStatus() {
   activePlayer = 0;
   currentRound = 1;
+  gameIsOver = false;
   gameOverElement.firstElementChild.innerHTML =
     'You win, <span id="winner-name">Player Name</span>!';
   gameOverElement.style.display = "none";
@@ -23,6 +24,8 @@ function startNewGame() {
     alert("Please enter names for both players!");
     return;
   } else {
+    resetGameStatus();
+
     activePlayerNameElement.textContent = players[activePlayer].name; // update player name at game start
     gameAreaElement.style.display = "block";
   }
@@ -39,7 +42,7 @@ function switchPlayer() {
 
 function selectGameField(event) {
   // for ol method validation
-  if (event.target.tagName !== "LI") {
+  if (event.target.tagName !== "LI" || gameIsOver) {
     return;
   }
   //
@@ -139,6 +142,7 @@ function checkForGameOver() {
 }
 
 function endGame(winnerId) {
+  gameIsOver = true;
   gameOverElement.style.display = "block";
   // tackle draw condition
   if (winnerId > 0) {
