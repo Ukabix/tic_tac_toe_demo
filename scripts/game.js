@@ -42,7 +42,12 @@ function selectGameField(event) {
   // console.log(gameData);
 
   const winnerId = checkForGameOver();
-  console.log(winnerId);
+  // console.log(winnerId);
+
+  // call endgame func -  forward winnerid value
+  if (winnerId !== 0) {
+    endGame(winnerId);
+  }
 
   currentRound++; // round counter
   switchPlayer();
@@ -117,13 +122,12 @@ function checkForGameOver() {
 function endGame(winnerId) {
   gameOverElement.style.display = "block";
   // tackle draw condition
-  if (winnerId >0) {
+  if (winnerId > 0) {
     // not a draw
     // access winner name via players array
-    const winnerName = players[winnerId -1].name;
+    const winnerName = players[winnerId - 1].name;
     gameOverElement.firstElementChild.firstElementChild.textContent = winnerName;
   } else {
     gameOverElement.firstElementChild.textContent = "It's a draw!";
   }
-    
 }
