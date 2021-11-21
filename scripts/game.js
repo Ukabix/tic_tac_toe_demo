@@ -113,3 +113,17 @@ function checkForGameOver() {
   }
   return 0;
 }
+
+function endGame(winnerId) {
+  gameOverElement.style.display = "block";
+  // tackle draw condition
+  if (winnerId >0) {
+    // not a draw
+    // access winner name via players array
+    const winnerName = players[winnerId -1].name;
+    gameOverElement.firstElementChild.firstElementChild.textContent = winnerName;
+  } else {
+    gameOverElement.firstElementChild.textContent = "It's a draw!";
+  }
+    
+}
